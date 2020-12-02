@@ -20,19 +20,15 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-//        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.purple,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+//  HomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -43,14 +39,16 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
+//  final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  static List items = ["IU (아이유) - 喜帖街 (Live).mp3","儿歌 - 兔子舞.mp3","古巨基 - 谁愿放手 (Live).mp3",
+    "影视原声 - 风舞（《斗罗大陆》动画片尾曲） (TV Version).mp3","芸熙儿 - 你的眼神 (Live).mp3"];
 
   void _incrementCounter() {
     setState(() {
@@ -63,8 +61,51 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  /*这里我们自己新建一个方法，很简单，就是执行减一操作*/
+  void _reduceCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+  //新建一个小玩意儿widget
+  static Widget SongList(){
+//    items.add("IU (아이유) - 喜帖街 (Live).mp3");
+//    items.add("儿歌 - 兔子舞.mp3");
+    items.add("古巨基 - 谁愿放手 (Live).mp3");
+    items.add("影视原声 - 风舞（《斗罗大陆》动画片尾曲） (TV Version).mp3");
+    items.add("芸熙儿 - 你的眼神 (Live).mp3");
+    List<Widget> tiles = [];//先建一个数组用于存放循环生成的widget
+    Widget content; //单独一个widget组件，用于返回需要生成的内容widget
+    for(var item in items) {
+      tiles.add(
+          Row(
+              children: <Widget>[
+                FlatButton(
+                  child: Text(
+                      item,
+                      style: TextStyle(color: Colors.white,)
+                  ),
+                ),
+              ]
+          )
+      );
+    }
+    content = Column(
+        children: tiles //重点在这里，因为用编辑器写Column生成的children后面会跟一个<Widget>[]，
+      //此时如果我们直接把生成的tiles放在<Widget>[]中是会报一个类型不匹配的错误，把<Widget>[]删了就可以了
+    );
+    return content;
+  }
+  Widget SongListWidget=SongList();
+
   @override
   Widget build(BuildContext context) {
+//    items.add("IU (아이유) - 喜帖街 (Live).mp3");
+//    items.add("儿歌 - 兔子舞.mp3");
+//    items.add("古巨基 - 谁愿放手 (Live).mp3");
+//    items.add("影视原声 - 风舞（《斗罗大陆》动画片尾曲） (TV Version).mp3");
+//    items.add("芸熙儿 - 你的眼神 (Live).mp3");
+//    print(items);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -75,11 +116,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+//        title: Text(widget.title),
       ),
-      body: Center(
+      body: Container(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/bg.jpg"),
+              fit: BoxFit.cover,
+            )
+        ),
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -95,14 +142,105 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+//          mainAxisAlignment: MainAxisAlignment.center,//垂直居中对齐方式
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            //导航栏
+            Row(
+              children: <Widget>[
+                IconButton(
+                  icon: ImageIcon(AssetImage('assets/icon/setting.png')),
+                ),
+                FlatButton(
+                  child: Text(
+                    "Mine",
+                    style: TextStyle(color: Colors.white,),),
+                ),
+                FlatButton(
+                  child: Text(
+                    "WOW",
+                    style: TextStyle(color: Colors.white,),),
+                ),
+                FlatButton(
+                  child: Text(
+                    "Village",
+                    style: TextStyle(color: Colors.white,),
+                  ),
+                  //内边距
+                  padding: EdgeInsets.all(0),
+                ),
+
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+
+            //信息页
+            Row(
+              children: <Widget>[
+                Text(
+                  '俊英',
+                  style: Theme.of(context).textTheme.headline4,
+                )
+              ],
+            ),
+
+            //歌单页
+            Text("我的歌单",
+                style: TextStyle(color: Colors.white,
+                    fontSize: 20
+                )
+            ),
+            Row(
+              children: <Widget>[
+                Image(
+                  height: 120,
+                  width: 80,
+                  image: AssetImage('assets/images/1.jpg'),
+                ),
+                Image(
+                  height: 120,
+                  width: 80,
+                  image: AssetImage('assets/images/2.jpg'),
+                ),
+                Image(
+                  height: 120,
+                  width: 80,
+                  image: AssetImage('assets/images/3.jpg'),
+                ),
+                Image(
+                  height: 120,
+                  width: 80,
+                  image: AssetImage('assets/images/4.jpg'),
+                ),Image(
+                  height: 120,
+                  width: 80,
+                  image: AssetImage('assets/images/5.jpg'),
+                ),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                //歌曲列表
+                Text("我的歌曲",
+                    style: TextStyle(color: Colors.white,
+                        fontSize: 20
+                    )
+                ),
+                Text(
+                  '$_counter',
+                  style:TextStyle(color: Colors.purpleAccent,fontSize: 40),
+                ),
+
+                /*我们新增一个按钮，用来实现点击使计数器减一*/
+                FlatButton(
+                  /*_reduceCounter是上面我们自己新增的方法，Dart中可以把方法作为参数传递*/
+                  onPressed: _reduceCounter,
+                  child: Text("减一按钮",
+                    style:TextStyle(color: Colors.white,fontSize: 20),),
+                )
+              ],
+            ),
+            Column(
+              children: <Widget>[SongListWidget],
             ),
           ],
         ),
