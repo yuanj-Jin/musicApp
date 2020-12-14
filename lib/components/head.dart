@@ -1,5 +1,39 @@
 import 'package:flutter/material.dart';
 
+
+
+//class Head extends StatefulWidget {
+//  @override
+//  _HeadState createState() => _HeadState();
+//}
+//
+//class _HeadState extends State<Head> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//      appBar: AppBar(
+//        leading: Icon(Icons.menu),
+//        actions: <Widget>[
+////          IconButton(
+////              icon: Icon(Icons.settings),
+////              onPressed: () {
+////                print("menu");
+////              }
+////          ),
+////          IconButton(
+////              icon: Icon(Icons.search),
+////              onPressed: () {
+////                print("menu");
+////              }
+////          ),
+//        ],
+//      ),
+//    );
+//  }
+//}
+
+
+
 //有状态组件
 // class Head extends StatefulWidget {
 //   @override
@@ -22,7 +56,10 @@ class Head extends StatelessWidget {
     return Row(
       children: <Widget>[
         IconButton(
-          icon: ImageIcon(AssetImage('assets/icon/setting.png')),
+          icon: Icon(Icons.menu),
+          onPressed: (){
+            print("object");
+          },
         ),
         FlatButton(
           child: Text(

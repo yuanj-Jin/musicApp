@@ -58,16 +58,7 @@ class _MineState extends State<Mine> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Head()
-      ),
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/bg.jpg"),
-              fit: BoxFit.cover,
-            )
-        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,//垂直居中对齐方式
           children: <Widget>[
