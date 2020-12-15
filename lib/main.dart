@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:musicapp/components/hall.dart';
 import 'package:musicapp/components/mine.dart';
+import 'package:musicapp/components/square.dart';
+import 'package:musicapp/components/float.dart';
 import 'package:musicapp/router/router.dart';
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,//去掉debug图标
       home: DefaultTabController(
         length: 3,
         child: Content(),
@@ -40,31 +43,27 @@ class _ContentState extends State<Content> {
         appBar: AppBar(
           centerTitle: true,
           title: Row(
-            children: <Widget>[
-              RaisedButton(
-                child: Text("Mine"),
-                onPressed: (){
-                  print("Mine");
-                },
-              ),
-              RaisedButton(
-                child: Text("Square"),
-                onPressed: (){
-                  print("Square");
-                },
-              ),
-              RaisedButton(
-                child: Text("Other"),
-                onPressed: (){
-                  print("Other");
-                },
+            children: [
+              Expanded(//显示在标题位置
+                child: TabBar(
+                  tabs: [
+                    Tab(text: "Mine",),
+                    Tab(text: "Square",),
+                    Tab(text: "Hall",)
+                  ],
+                ),
               )
             ],
           ),
+
+
+          /**
+           * 右侧按钮
+           */
           leading: IconButton(
             icon: Icon(Icons.menu),
             onPressed: (){
-              print("Square");
+              print("Menu");
             },
           ),
           actions: <Widget>[
@@ -72,22 +71,39 @@ class _ContentState extends State<Content> {
             IconButton(
               icon: Icon(Icons.settings),
               onPressed: (){
-                print("Square");
+                print("settings");
               },
             ),
           ],
         ),
 
-
-
-
+        body: TabBarView(
+          children: [
+            ListView(
+              children: [
+                Mine()
+              ],
+            ),
+            ListView(
+              children: [
+                Square()
+              ],
+            ),
+            ListView(
+              children: [
+                Hall()
+              ],
+            )
+          ],
+        ),
 
         floatingActionButton: FloatingActionButton(
           onPressed: (){
-
+            print(("floatingActionButton"));
           },
           tooltip: 'Increment',
-          child: Icon(Icons.add),
+          // child: Icon(Icons.audiotrack),
+          child: Float(),
         ),
       );
   }

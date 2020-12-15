@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:musicapp/components/head.dart';
-
 
 class Mine extends StatefulWidget {
   //路由传参
@@ -14,7 +12,9 @@ class Mine extends StatefulWidget {
 class _MineState extends State<Mine> {
   int _counter = 0;
   static List items = ["IU (아이유) - 喜帖街 (Live).mp3","儿歌 - 兔子舞.mp3","古巨基 - 谁愿放手 (Live).mp3",
-    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","芸熙儿 - 你的眼神 (Live).mp3"];
+    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","芸熙儿 - 你的眼神 (Live).mp3","柔らかな手（柔和的手）- 高梨康治",
+    "经济舱（live）- Kafe.Hu","收敛 - 不够","夏日舞池Say so - GHC/露露娜","Dandelion's Promise - 胡伟佳",
+    "一事无成 - 周柏豪/郑融"];
 
   void _incrementCounter() {
     setState(() {
@@ -57,74 +57,82 @@ class _MineState extends State<Mine> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,//垂直居中对齐方式
-          children: <Widget>[
-            /*
+    return Container(
+      //设置背景图片
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/images/bg.jpg"),
+            fit: BoxFit.cover
+        )
+      ),
+
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,//垂直居中对齐方式
+        children: <Widget>[
+          /*
             歌单行
              */
-            Row(
-              children: <Widget>[
-                Image(
-                  height: 120,
-                  width: 80,
-                  image: AssetImage('assets/images/1.jpg'),
-                ),
-                Image(
-                  height: 120,
-                  width: 80,
-                  image: AssetImage('assets/images/2.jpg'),
-                ),
-                Image(
-                  height: 120,
-                  width: 80,
-                  image: AssetImage('assets/images/3.jpg'),
-                ),
-                Image(
-                  height: 120,
-                  width: 80,
-                  image: AssetImage('assets/images/4.jpg'),
-                ),Image(
-                  height: 120,
-                  width: 80,
-                  image: AssetImage('assets/images/5.jpg'),
-                ),
-              ],
-            ),
+          Row(
+            children: <Widget>[
+              Image(
+                height: 120,
+                width: 80,
+                image: AssetImage('assets/images/1.jpg'),
+              ),
+              Image(
+                height: 120,
+                width: 80,
+                image: AssetImage('assets/images/2.jpg'),
+              ),
+              Image(
+                height: 120,
+                width: 80,
+                image: AssetImage('assets/images/3.jpg'),
+              ),
+              Image(
+                height: 120,
+                width: 80,
+                image: AssetImage('assets/images/4.jpg'),
+              ),Image(
+                height: 120,
+                width: 80,
+                image: AssetImage('assets/images/5.jpg'),
+              ),
+            ],
+          ),
 
-            Row(
-              children: <Widget>[
-                //歌曲列表
-                Text("我的歌曲",
-                    style: TextStyle(color: Colors.white,
-                        fontSize: 20
-                    )
-                ),
-                Text(
-                  '$_counter',
-                  style:TextStyle(color: Colors.purpleAccent,fontSize: 40),
-                ),
+          Row(
+            children: <Widget>[
+              //歌曲列表
+              Text("我的歌曲",
+                  style: TextStyle(color: Colors.white,
+                      fontSize: 20
+                  )
+              ),
+              Text(
+                '$_counter',
+                style:TextStyle(color: Colors.purpleAccent,fontSize: 40),
+              ),
 
-                /*我们新增一个按钮，用来实现点击使计数器减一*/
-                RaisedButton(
-                    onPressed: _reduceCounter,
-                    child: Text("一")
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[SongListWidget],
-            ),
-          ],
-        ),
+              /*我们新增一个按钮，用来实现点击使计数器减一*/
+              RaisedButton(
+                  onPressed: _reduceCounter,
+                  child: Icon(Icons.remove)
+              ),
+              RaisedButton(
+                onPressed: _incrementCounter,
+                child: Icon(Icons.add),
+              ), //
+            ],
+          ),
+          Row(
+            children: <Widget>[SongListWidget],
+          ),
+
+
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
     );
   }
 }
