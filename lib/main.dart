@@ -69,9 +69,9 @@ class _ContentState extends State<Content> {
           actions: <Widget>[
             //右侧
             IconButton(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.search),
               onPressed: (){
-                print("settings");
+                print("search");
               },
             ),
           ],
