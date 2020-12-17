@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:musicapp/components/hall.dart';
 import 'package:musicapp/components/mine.dart';
 import 'package:musicapp/components/square.dart';
-import 'package:musicapp/components/float.dart';
+import 'package:musicapp/components/profile.dart';
 import 'package:musicapp/router/router.dart';
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,//去掉debug图标
       home: DefaultTabController(
-        length: 3,
+        length: 4,
         child: Content(),
       ),
       theme: ThemeData(
@@ -49,7 +49,8 @@ class _ContentState extends State<Content> {
                   tabs: [
                     Tab(text: "Mine",),
                     Tab(text: "Square",),
-                    Tab(text: "Hall",)
+                    Tab(text: "Hall",),
+                    Tab(text: "Profile",)
                   ],
                 ),
               )
@@ -93,7 +94,11 @@ class _ContentState extends State<Content> {
               children: [
                 Hall()
               ],
-            )
+            ),
+            ListView(
+              children: [
+                Profile()
+              ],)
           ],
         ),
 
