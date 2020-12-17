@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:musicapp/components/mine.dart';
 import 'package:musicapp/components/hall.dart';
 import 'package:musicapp/components/profile.dart';
+import 'package:musicapp/components/music/player.dart';
 
 final routers={
   '/':(context,{arguments})=>Mine(),
   '/mine':(context,{arguments})=>Mine(arguments:arguments),
   'hall':(context,{arguments})=>Hall(),
   'profile':(context,{arguments})=>Profile(),
+  'player':(context,{arguments})=>Player(),
 };
 
 

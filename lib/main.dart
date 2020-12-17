@@ -99,11 +99,10 @@ class _ContentState extends State<Content> {
 
         floatingActionButton: FloatingActionButton(
           onPressed: (){
-            print(("floatingActionButton"));
+            Navigator.pushNamed(context, "player");
           },
-          tooltip: 'Increment',
-          // child: Icon(Icons.audiotrack),
-          child: Float(),
+          child: Icon(Icons.audiotrack),
+          // child: Float(),
         ),
       );
   }
