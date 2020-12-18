@@ -3,16 +3,15 @@ import 'package:musicapp/components/mine.dart';
 import 'package:musicapp/components/hall.dart';
 import 'package:musicapp/components/profile.dart';
 import 'package:musicapp/components/other.dart';
-import 'file:///F:/Jean/musicApp/lib/components/music/musicPlayer.dart';
-import 'file:///F:/Jean/musicApp/lib/components/video/videoPlayer.dart';
-
+import 'package:musicapp/components/music/musicPlayer.dart';
+import 'package:musicapp/components/video/videoPlayer.dart';
 final routers={
   '/':(context,{arguments})=>Mine(),
   '/mine':(context,{arguments})=>Mine(arguments:arguments),
   'hall':(context,{arguments})=>Hall(),
   'profile':(context,{arguments})=>Profile(),
   'musicPlayer':(context,{arguments})=>MusicPlayer(),
-  'videoPlayer':(context,{arguments})=>ChewieDemo(),
+  'videoPlayer':(context,{arguments})=>VideoPlayer(),
   'other':(context,{arguments})=>Other(),
 };
 

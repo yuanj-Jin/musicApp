@@ -11,17 +11,17 @@ class Mine extends StatefulWidget {
 
 class _MineState extends State<Mine> {
   int _counter = 0;
-  static List items = ["IU (아이유) - 喜帖街 (Live).mp3","儿歌 - 兔子舞.mp3","古巨基 - 谁愿放手 (Live).mp3",
-    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","芸熙儿 - 你的眼神 (Live).mp3","柔らかな手（柔和的手）- 高梨康治",
+  static List items = ["IU-XITIEJIE(live).mp3","儿歌 - 兔子舞.mp3","SHUIYUANFANGSHOU-GUJUJI.mp3",
+    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","NIDEYANSHENG-YUNXIER.mp3","柔らかな手（柔和的手）- 高梨康治",
     "经济舱（live）- Kafe.Hu","收敛 - 不够","夏日舞池Say so - GHC/露露娜","Dandelion's Promise - 胡伟佳",
-    "一事无成 - 周柏豪/郑融","IU (아이유) - 喜帖街 (Live).mp3","儿歌 - 兔子舞.mp3","古巨基 - 谁愿放手 (Live).mp3",
-    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","芸熙儿 - 你的眼神 (Live).mp3","柔らかな手（柔和的手）- 高梨康治",
+    "一事无成 - 周柏豪/郑融","IU-XITIEJIE(live).mp3","儿歌 - 兔子舞.mp3","SHUIYUANFANGSHOU-GUJUJI.mp3",
+    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","NIDEYANSHENG-YUNXIER.mp3","柔らかな手（柔和的手）- 高梨康治",
     "经济舱（live）- Kafe.Hu","收敛 - 不够","夏日舞池Say so - GHC/露露娜","Dandelion's Promise - 胡伟佳",
-    "一事无成 - 周柏豪/郑融","IU (아이유) - 喜帖街 (Live).mp3","儿歌 - 兔子舞.mp3","古巨基 - 谁愿放手 (Live).mp3",
-    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","芸熙儿 - 你的眼神 (Live).mp3","柔らかな手（柔和的手）- 高梨康治",
+    "一事无成 - 周柏豪/郑融","IU-XITIEJIE(live).mp3","儿歌 - 兔子舞.mp3","SHUIYUANFANGSHOU-GUJUJI.mp3",
+    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","NIDEYANSHENG-YUNXIER.mp3","柔らかな手（柔和的手）- 高梨康治",
     "经济舱（live）- Kafe.Hu","收敛 - 不够","夏日舞池Say so - GHC/露露娜","Dandelion's Promise - 胡伟佳",
-    "一事无成 - 周柏豪/郑融","IU (아이유) - 喜帖街 (Live).mp3","儿歌 - 兔子舞.mp3","古巨基 - 谁愿放手 (Live).mp3",
-    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","芸熙儿 - 你的眼神 (Live).mp3","柔らかな手（柔和的手）- 高梨康治",
+    "一事无成 - 周柏豪/郑融","IU-XITIEJIE(live).mp3","儿歌 - 兔子舞.mp3","SHUIYUANFANGSHOU-GUJUJI.mp3",
+    "影视原声 - 风舞（《斗罗大陆》动画片尾曲）.mp3","NIDEYANSHENG-YUNXIER.mp3","柔らかな手（柔和的手）- 高梨康治",
     "经济舱（live）- Kafe.Hu","收敛 - 不够","夏日舞池Say so - GHC/露露娜","Dandelion's Promise - 胡伟佳",
     "一事无成 - 周柏豪/郑融"];
 
