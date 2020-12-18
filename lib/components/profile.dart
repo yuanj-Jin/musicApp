@@ -52,7 +52,8 @@ class _ProfileState extends State<Profile> {
       children: <Widget>[
         Expanded(
           flex: 2,
-          child: Text(title.toUpperCase()),),
+          child: Text(title.toUpperCase()),
+        ),
         SizedBox(width: 10.0,),
         Expanded(
           flex: 5,
@@ -84,7 +85,17 @@ class AvatarWidget extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-              Text("YUAN JING",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+            Row(
+              children: [
+                Text("YUAN JING",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                IconButton(
+                  icon: Icon(Icons.info),
+                  onPressed: (){
+                    Navigator.pushNamed(context, "other");
+                  },
+                )
+              ],
+            ),
               Text("Full Stack Developer"),
               Row(
                 children: <Widget>[

@@ -46,6 +46,7 @@ class _ContentState extends State<Content> {
             children: [
               Expanded(//显示在标题位置
                 child: TabBar(
+                  isScrollable: true,//如果多个Tab时，可以滚动
                   tabs: [
                     Tab(text: "Mine",),
                     Tab(text: "Square",),
@@ -104,7 +105,7 @@ class _ContentState extends State<Content> {
 
         floatingActionButton: FloatingActionButton(
           onPressed: (){
-            Navigator.pushNamed(context, "player");
+            Navigator.pushNamed(context, "musicPlayer");
           },
           child: Icon(Icons.audiotrack),
           // child: Float(),

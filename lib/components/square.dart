@@ -15,6 +15,14 @@ class _SquareState extends State<Square> {
       decoration: BoxDecoration(
         color: Colors.purple,
       ),
+      child: Column(
+        children: [
+          IconButton(icon: Icon(Icons.video_call),
+              onPressed: (){
+                Navigator.pushNamed(context,"videoPlayer");
+              })
+        ],
+      ),
     );
   }
 }
