@@ -5,6 +5,7 @@ import 'package:musicapp/components/profile.dart';
 import 'package:musicapp/components/other.dart';
 import 'package:musicapp/components/music/musicPlayer.dart';
 import 'package:musicapp/components/video/videoPlayer.dart';
+import 'package:musicapp/components/video/youtubePlayer.dart';
 final routers={
   '/':(context,{arguments})=>Mine(),
   '/mine':(context,{arguments})=>Mine(arguments:arguments),
@@ -12,6 +13,7 @@ final routers={
   'profile':(context,{arguments})=>Profile(),
   'musicPlayer':(context,{arguments})=>MusicPlayer(),
   'videoPlayer':(context,{arguments})=>VideoPlayer(),
+  'youtubePlayer':(context,{arguments})=>YoutubePlayer(),
   'other':(context,{arguments})=>Other(),
 };
 

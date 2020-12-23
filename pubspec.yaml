@@ -23,10 +23,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-#  youtube_player_iframe: ^1.1.0
   #播放器
-#  chewie: ^0.12.0
+  flutter_inappwebview: ^4.0.0+4
+  youtube_player_iframe: ^1.1.0
+  chewie: ^0.12.0
+  audioplayers: ^0.17.0
+  http: ^0.12.2
+  provider: ^4.3.2+3
+  assets_audio_player: ^2.0.13+1
+  flutter_neumorphic: ^3.0.2
+  #图标
   font_awesome_flutter: ^8.4.0
+  #链接
   url_launcher: ^5.0.2
 dev_dependencies:
   flutter_test:
@@ -45,6 +53,10 @@ flutter:
     - assets/images/3.jpg
     - assets/images/4.jpg
     - assets/images/5.jpg
+    - assets/music/FENGWU-DOULUODALU.mp3
+    - assets/music/IU-XITIEJIE(live).mp3
+    - assets/music/NIDEYANSHENG-YUNXIER.mp3
+    - assets/music/SHUIYUANFANGSHOU-GUJUJI.mp3
 #    - 古巨基 - 谁愿放手 (Live).mp3
 #    - IU (아이유) - 喜帖街 (Live).mp3
 #    - 芸熙儿 - 你的眼神 (Live).mp3

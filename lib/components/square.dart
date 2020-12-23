@@ -20,6 +20,11 @@ class _SquareState extends State<Square> {
           IconButton(icon: Icon(Icons.video_call),
               onPressed: (){
                 Navigator.pushNamed(context,"videoPlayer");
+              }),
+
+          IconButton(icon: Icon(Icons.youtube_searched_for),
+              onPressed: (){
+                Navigator.pushNamed(context,"youtubePlayer");
               })
         ],
       ),

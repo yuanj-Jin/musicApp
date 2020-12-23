@@ -47,4 +47,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <uses-sdk
+        android:maxSdkVersion="21"
+        tools:overrideLibrary="com.pichillilorenzo.flutter_inappwebview" />
 </manifest>
