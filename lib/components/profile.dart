@@ -66,7 +66,7 @@ class _ProfileState extends State<Profile> {
                 _launchURL("https://www.baidu.com");
               }),
               IconButton(color: Colors.indigo,icon: Icon(FontAwesomeIcons.youtube), onPressed: (){
-                _launchURL("https://youtube.com/c/reactbits");
+                _launchURL("https://www.youtube.com/channel/UCuRY1zGy8t0uvtHciHZ7GSg");
               }),
               IconButton(color: Colors.indigo,icon: Icon(FontAwesomeIcons.github), onPressed: (){
                 _launchURL("https://github.com/lohanidamodar");

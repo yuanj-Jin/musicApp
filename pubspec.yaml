@@ -26,8 +26,9 @@ dependencies:
   #播放器
   flutter_inappwebview: ^4.0.0+4
   youtube_player_iframe: ^1.1.0
-  chewie: ^0.12.0
-  audioplayers: ^0.17.0
+  youtube_player_flutter: ^7.0.0+7
+#  chewie: ^0.12.0
+#  audioplayers: ^0.17.0
   http: ^0.12.2
   provider: ^4.3.2+3
   assets_audio_player: ^2.0.13+1
