@@ -13,14 +13,14 @@ class _MusicPlayerState extends State<MusicPlayer> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: blueColor,
-        body: DetailedScreen("yuanjing", "zlatan", "assets/images/bg.jpg")
+        body: DetailedScreen("1", "1", "assets/images/bg.jpg")
     );
   }
 }
 
 class DetailedScreen extends StatelessWidget {
-  String title="yuanj";
-  String artist="kkss";
+  String title="yuanjing";
+  String artist="zlatan";
   String image='assets/images/bg.jpg';
   DetailedScreen(title, artist, image);
   @override

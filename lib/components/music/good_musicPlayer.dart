@@ -164,6 +164,26 @@ class _MusicPlayerState extends State<MusicPlayer> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Material(child: _buildPlayer()),
+                  if (!kIsWeb)
+                    localFilePath != null ? Text(localFilePath) : Container(),
+                  if (!kIsWeb)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          RaisedButton(
+                            onPressed: () => _loadFile(),
+                            child: Text('Download'),
+                          ),
+                          if (localFilePath != null)
+                            RaisedButton(
+                              onPressed: () => _playLocal(),
+                              child: Text('play local'),
+                            ),
+                        ],
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -175,7 +195,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(50.0)),
     ),
-    padding: EdgeInsets.all(50.0),
+    // padding: EdgeInsets.all(50.0),
     child: Column(
       // mainAxisSize: MainAxisSize.min,
       children: [
@@ -192,36 +212,67 @@ class _MusicPlayerState extends State<MusicPlayer> {
             icon: Icon(Icons.pause_circle_filled),
             color: Colors.purple,
           ),
-          // IconButton(
-          //   onPressed: isPlaying || isPaused ? () => stop() : null,
-          //   iconSize: 42.0,
-          //   icon: Icon(Icons.stop_circle_sharp),
-          //   color: Colors.purple,
-          // ),
-
-      CircleAvatar(
-          radius:52.0,
-          backgroundImage: AssetImage( //背景图 child可以添加内容
-            "assets/images/bg.jpg",
+          IconButton(
+            onPressed: isPlaying || isPaused ? () => stop() : null,
+            iconSize: 42.0,
+            icon: Icon(Icons.stop_circle_sharp),
+            color: Colors.purple,
           ),
-      )
-
-
-
         ]),
-        // if (duration != null)
-        //   Slider(
-        //       value: position?.inMilliseconds?.toDouble() ?? 0.0,
-        //       onChanged: (double value) {
-        //         return audioPlayer.seek((value / 1000).roundToDouble());
-        //       },
-        //       min: 0.0,
-        //       max: duration.inMilliseconds.toDouble()),
-        // if (position != null) _buildMuteButtons(),
-        // if (position != null) _buildProgressView()
+        if (duration != null)
+          Slider(
+              value: position?.inMilliseconds?.toDouble() ?? 0.0,
+              onChanged: (double value) {
+                return audioPlayer.seek((value / 1000).roundToDouble());
+              },
+              min: 0.0,
+              max: duration.inMilliseconds.toDouble()),
+        if (position != null) _buildMuteButtons(),
+        if (position != null) _buildProgressView()
       ],
     ),
   );
 
+  Row _buildProgressView() => Row(mainAxisSize: MainAxisSize.min, children: [
+    Padding(
+      padding: EdgeInsets.all(12.0),
+      child: CircularProgressIndicator(
+        value: position != null && position.inMilliseconds > 0
+            ? (position?.inMilliseconds?.toDouble() ?? 0.0) /
+            (duration?.inMilliseconds?.toDouble() ?? 0.0)
+            : 0.0,
+        valueColor: AlwaysStoppedAnimation(Colors.cyan),
+        backgroundColor: Colors.grey.shade400,
+      ),
+    ),
+    Text(
+      position != null
+          ? "${positionText ?? ''} / ${durationText ?? ''}"
+          : duration != null ? durationText : '',
+      style: TextStyle(fontSize: 24.0),
+    )
+  ]);
 
+  Row _buildMuteButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        if (!isMuted)
+          FlatButton.icon(
+            onPressed: () => mute(true),
+            icon: Icon(
+              Icons.headset_off,
+              color: Colors.cyan,
+            ),
+            label: Text('Mute', style: TextStyle(color: Colors.cyan)),
+          ),
+        if (isMuted)
+          FlatButton.icon(
+            onPressed: () => mute(false),
+            icon: Icon(Icons.headset, color: Colors.cyan),
+            label: Text('Unmute', style: TextStyle(color: Colors.cyan)),
+          ),
+      ],
+    );
+  }
 }
